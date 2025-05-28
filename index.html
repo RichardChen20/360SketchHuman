@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-    <title>Sketch2Human3D</title>
+    <title>360SketchHuman</title>
     <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
         if you update and want to force Facebook to re-scrape. -->
     <meta property="og:image" content="https://jasonyzhang.com/ners/resources/web_teaser.png" />
@@ -33,7 +33,7 @@
 <body>
     <div class="container">
         <div class="title">
-            Sketch2Human3D: Transfer Your Sketch into Photo-Realistic 3D Human
+            360SketchHuman: Geometry-guided 3D Full-body Human Generation from Hand-drawn Sketches
         </div>
 
         <br>
@@ -48,9 +48,9 @@
         <div class="author">
             <a href="https://sites.google.com/view/richardchen20">Jie Zhang</a><sup>3</sup>
         </div>
-        <div class="author">
+<!--         <div class="author">
             <a href="https://sites.google.com/view/richardchen20">Tong-Yee Lee</a><sup>4</sup>
-        </div>
+        </div> -->
         <div class="author">
             <a href="https://sites.google.com/view/richardchen20">Ping Li</a><sup>1*</sup>
         </div>
@@ -61,7 +61,7 @@
         <div class="affiliation"><sup>1</sup>The Hong Kong Polytechnic University</div>
         <div class="affiliation"><sup>2</sup>Sensetime Research</div>
         <div class="affiliation"><sup>3</sup>Macao Polytechnic University</div>
-        <div class="affiliation"><sup>4</sup>National Cheng-Kung University</div>
+<!--         <div class="affiliation"><sup>4</sup>National Cheng-Kung University</div> -->
 
         <br>
         <br>
@@ -70,9 +70,9 @@
         <br>
         <br>
 
-        <div class="links"><a href="https://github.com/RichardChen20/Sketch2Human3D">[Paper]</a></div>
-        <div class="links"><a href="https://github.com/RichardChen20/Sketch2Human3D">[Video]</a></div>
-        <div class="links"><a href="https://github.com/RichardChen20/Sketch2Human3D">[Code]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/360SketchHuman">[Paper]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/360SketchHuman">[Video]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/360SketchHuman">[Code]</a></div>
         <!-- <div class="links"><a href="./paper_figures">[Figures]</a></div> -->
         <!-- <div class="links"><a href="https://drive.google.com/file/d/1hCKUx8pXctfDBXVKw32VTuX1Nb637BlD/view?usp=sharing">[Weights]</a></div> -->
         <br>
@@ -99,19 +99,20 @@
 
         <h1>Abstract</h1>
         <p>
-            Creating photo-realistic 3D humans have wide applications in digital entertainment, online education and art design. 
-            Existing works mainly employ coarse conditions such as pose to guide the generation, thus lacking detailed control over the synthesized results.
-            To handle this issue, sketches can be a potential condition to achieve a more explicit and specific control.
-            However, existing sketch-based generation methods are designed for 3D faces or rigid objects, how to transfer sketches into 3D humans remains unexplored.
-            One straightforward idea is adapting sketch-based 3D face generation to human and another one is lifting sketch-based 2D human generation to 3D through a two-stage approach, however, both of them could lead to unsatisfactory degradation in 3D human generation quality.
-            To fill the gap, in this work, we propose Sketch2Human3D, the first unified framework to achieve sketch-based 3D human generation, which is capable of synthesizing sketch-consistent and multi-view human images and corresponding human shapes simultaneously.
-            Our unified framework guides the 3D human representation generation and rendering process by utilizing the geometry information extracted from the sketch.
-            Specifically, we propose sketch-guided 3D representation generation to model the 3D human and maintain the consistency between input sketches and generated human images. 
-            In addition, we equip the architecture of a typical 3D-aware GAN with spatial feature guidance and latent modulation provided by sketches to generate the 3D representation.
-            Besides, our designed body-aware neural renderer leverages the 3D human body priors from sketches during the rendering process, reducing the difficulty of learning articulated body poses and complex body shapes.
-            To train and evaluate our proposed Sketch2Human3D, we build a large-scale dataset containing around 39K 2D human images and their corresponding sketches in different styles.
-            Experimental results show that our Sketch2Human3D can transfer different types of sketches into 3D full-body humans with high-quality rendering results and reasonable geometry. 
-            We also demonstrate the effectiveness of our specific designs through ablation study and the feasibility of applying Sketch2Human3D to down-stream tasks.
+            Generating 360° full-body humans has broad applications in digital entertainment, online education and art design. 
+            Existing works primarily rely on coarse conditions such as body pose to guide the generation, lacking detailed control over the synthesized results.
+            Regarding this limitation, sketches offer a promising alternative as an expressive condition that enables more explicit and precise control.
+            However, current sketch-based generation methods focus on faces or common objects, how to transfer sketches into 360° full-body humans remains unexplored.
+            We propose two straightforward strategies: adapting sketch-based 3D-aware face generation to full-body human or lifting sketch-based 2D human generation to 3D-aware format through a two-stage approach. 
+            Unfortunately, both methods result in unsatisfactory degradation of generation quality.
+            To bridge this gap, in this work, we propose \textit{360SketchHuman}, the first generative model to achieve 3D full-body human generation from hand-drawn sketches.
+            Our model is capable of synthesizing sketch-aligned and 360°-consistent full-body human images by leveraging the geometry information extracted from sketches to guide the 3D representation generation and neural rendering. 
+            Specifically, we propose sketch-guided 3D representation generation to model the 3D human and maintain the alignment between input sketches and generated humans. 
+            Our transformer-based generator incorporates spatial feature guidance and latent modulation derived from sketches to produce high-quality 3D representations.
+            Additionally, our designed body-aware neural rendering utilizes 3D human body priors from sketches, simplifying the learning of articulated body poses and complex body shapes.
+            To train and evaluate our model, we construct a large-scale dataset comprising approximately 19K 2D full-body human images and their corresponding sketches in a hand-drawn style.
+            Experimental results demonstrate that our 360SketchHuman can transfer hand-drawn sketches into photo-realistic 360° full-body human images with precise sketch-human alignment. 
+            Ablation studies further validate the effectiveness of our design choices.
         </p>
 
         <br><br>
@@ -121,7 +122,9 @@
             <img style="width:100%;" src="./resources/images/pipeline.png" alt="Model overview figure" />
             <br>
             <i>
-                Illustration of sketch-based 3D full-body human generation. Our Sketch2Human3D supports transferring hand-drawn sketches into 3D humans which can be rendered into multi-view RGB images and 3D shapes. For each hand-drawn sketch, we show two sets of images in different clothing styles and camera views.
+                Illustration of 3D full-body human generation from hand-drawn sketches. 
+                Our Sketch2Human3D supports transferring hand-drawn sketches into 3D humans which can be rendered into multi-view RGB images. 
+                For each hand-drawn sketch, we show three rendered images with different body orientations and its corresponding 3D shape.
             </i>
         </div>
         
