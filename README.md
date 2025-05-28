@@ -1,1 +1,1 @@
-# Sketch2Human3D
+# 360SketchHuman
