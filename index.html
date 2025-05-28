@@ -105,7 +105,7 @@
             However, current sketch-based generation methods focus on faces or common objects, how to transfer sketches into 360° full-body humans remains unexplored.
             We propose two straightforward strategies: adapting sketch-based 3D-aware face generation to full-body human or lifting sketch-based 2D human generation to 3D-aware format through a two-stage approach. 
             Unfortunately, both methods result in unsatisfactory degradation of generation quality.
-            To bridge this gap, in this work, we propose \textit{360SketchHuman}, the first generative model to achieve 3D full-body human generation from hand-drawn sketches.
+            To bridge this gap, in this work, we propose 360SketchHuman, the first generative model to achieve 3D full-body human generation from hand-drawn sketches.
             Our model is capable of synthesizing sketch-aligned and 360°-consistent full-body human images by leveraging the geometry information extracted from sketches to guide the 3D representation generation and neural rendering. 
             Specifically, we propose sketch-guided 3D representation generation to model the 3D human and maintain the alignment between input sketches and generated humans. 
             Our transformer-based generator incorporates spatial feature guidance and latent modulation derived from sketches to produce high-quality 3D representations.
@@ -122,9 +122,7 @@
             <img style="width:100%;" src="./resources/images/pipeline.png" alt="Model overview figure" />
             <br>
             <i>
-                Illustration of 3D full-body human generation from hand-drawn sketches. 
-                Our Sketch2Human3D supports transferring hand-drawn sketches into 3D humans which can be rendered into multi-view RGB images. 
-                For each hand-drawn sketch, we show three rendered images with different body orientations and its corresponding 3D shape.
+                Illustration of 3D full-body human generation from hand-drawn sketches. Our Sketch2Human3D supports transferring hand-drawn sketches into 3D humans which can be rendered into multi-view RGB images. For each hand-drawn sketch, we show three rendered images with different body orientations and its corresponding 3D shape.
             </i>
         </div>
         
