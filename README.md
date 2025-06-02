@@ -1,1 +1,1 @@
-# 360SketchHuman
+# Sketch2Avatar
