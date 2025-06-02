@@ -8,14 +8,14 @@
 <html lang="en">
 
 <head>
-    <title>360SketchHuman</title>
+    <title>Sketch2Avatar</title>
     <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
         if you update and want to force Facebook to re-scrape. -->
     <meta property="og:image" content="https://jasonyzhang.com/ners/resources/web_teaser.png" />
     <meta property="og:title"
-        content="Sketch2Human3D: Transfer Your Sketch into Photo-Realistic 3D Human" />
+        content="Sketch2Avatar: Geometry-guided 3D Full-body Human Generation in 360° from Hand-drawn Sketches" />
     <meta property="og:description"
-        content="Given in-the-wild multiview images, noisy cameras, and a rough shape initialization, we recover the shape deformation, texture, and illumination." />
+        content="xxxxxxxxx" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -33,7 +33,7 @@
 <body>
     <div class="container">
         <div class="title">
-            360SketchHuman: Geometry-guided 3D Full-body Human Generation from Hand-drawn Sketches
+            Sketch2Avatar: Geometry-guided 3D Full-body Human Generation in 360° from Hand-drawn Sketches
         </div>
 
         <br>
@@ -43,23 +43,23 @@
             <a href="https://sites.google.com/view/richardchen20">Ziwei Chen</a><sup>1</sup>
         </div>
         <div class="author">
-            <a href="https://sites.google.com/view/richardchen20">Qiang Li</a><sup>2</sup>
+            <a href="https://sites.google.com/site/utsqiangli2/">Qiang Li</a><sup>2</sup>
         </div>
         <div class="author">
-            <a href="https://sites.google.com/view/richardchen20">Jie Zhang</a><sup>3</sup>
+            <a href="https://easy-shu.github.io/">Jie Zhang</a><sup>3</sup>
         </div>
 <!--         <div class="author">
             <a href="https://sites.google.com/view/richardchen20">Tong-Yee Lee</a><sup>4</sup>
         </div> -->
         <div class="author">
-            <a href="https://sites.google.com/view/richardchen20">Ping Li</a><sup>1*</sup>
+            <a href="https://www4.comp.polyu.edu.hk/~pinli/">Ping Li</a><sup>1*</sup>
         </div>
 
         <br>
         <br>
 
         <div class="affiliation"><sup>1</sup>The Hong Kong Polytechnic University</div>
-        <div class="affiliation"><sup>2</sup>Sensetime Research</div>
+        <div class="affiliation"><sup>2</sup>Alibaba Group</div>
         <div class="affiliation"><sup>3</sup>Macao Polytechnic University</div>
 <!--         <div class="affiliation"><sup>4</sup>National Cheng-Kung University</div> -->
 
@@ -70,9 +70,9 @@
         <br>
         <br>
 
-        <div class="links"><a href="https://github.com/RichardChen20/360SketchHuman">[Paper]</a></div>
-        <div class="links"><a href="https://github.com/RichardChen20/360SketchHuman">[Video]</a></div>
-        <div class="links"><a href="https://github.com/RichardChen20/360SketchHuman">[Code]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/Sketch2Avatar">[Paper]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/Sketch2Avatar">[Video]</a></div>
+        <div class="links"><a href="https://github.com/RichardChen20/Sketch2Avatar">[Code]</a></div>
         <!-- <div class="links"><a href="./paper_figures">[Figures]</a></div> -->
         <!-- <div class="links"><a href="https://drive.google.com/file/d/1hCKUx8pXctfDBXVKw32VTuX1Nb637BlD/view?usp=sharing">[Weights]</a></div> -->
         <br>
@@ -80,9 +80,9 @@
         <div class="teaser-mid preview">
             <img style="width:100%;" src="./resources/images/show_img.png" alt="Results show figure" />
             <br>
-            <i>
-                Illustration of transferring 2D sketch to photo-realistic 3D human. Our Sketch2Human3D supports transferring hand-drawn sketches into 3D humans which can be rendered into multi-view RGB images and 3D shapes. For each hand-drawn sketch, we show two sets of images in different clothing styles and camera views.
-            </i>
+            <!-- <i>
+                Illustration of 3D full-body human generation from hand-drawn sketches. Our Sketch2Avatar supports transferring hand-drawn sketches into 3D humans which can be rendered into 360°-consistent RGB images. For each hand-drawn sketch, we show three rendered images with different body orientations and its corresponding depth map.
+            </i> -->
         </div>
         <!-- 
         <div class="teaser-right">
@@ -99,19 +99,19 @@
 
         <h1>Abstract</h1>
         <p>
-            Generating 360° full-body humans has broad applications in digital entertainment, online education and art design. 
+            Generating full-body humans in 360° has broad applications in digital entertainment, online education and art design. 
             Existing works primarily rely on coarse conditions such as body pose to guide the generation, lacking detailed control over the synthesized results.
             Regarding this limitation, sketches offer a promising alternative as an expressive condition that enables more explicit and precise control.
             However, current sketch-based generation methods focus on faces or common objects, how to transfer sketches into 360° full-body humans remains unexplored.
-            We propose two straightforward strategies: adapting sketch-based 3D-aware face generation to full-body human or lifting sketch-based 2D human generation to 3D-aware format through a two-stage approach. 
+            We first propose two straightforward strategies: adapting sketch-based 3D face generation to full-body human or lifting sketch-based 2D human generation to 3D format through a two-stage approach. 
             Unfortunately, both methods result in unsatisfactory degradation of generation quality.
-            To bridge this gap, in this work, we propose 360SketchHuman, the first generative model to achieve 3D full-body human generation from hand-drawn sketches.
+            To bridge this gap, in this work, we propose Sketch2Avatar, the first generative model to achieve 3D full-body human generation from hand-drawn sketches.
             Our model is capable of synthesizing sketch-aligned and 360°-consistent full-body human images by leveraging the geometry information extracted from sketches to guide the 3D representation generation and neural rendering. 
             Specifically, we propose sketch-guided 3D representation generation to model the 3D human and maintain the alignment between input sketches and generated humans. 
             Our transformer-based generator incorporates spatial feature guidance and latent modulation derived from sketches to produce high-quality 3D representations.
             Additionally, our designed body-aware neural rendering utilizes 3D human body priors from sketches, simplifying the learning of articulated body poses and complex body shapes.
             To train and evaluate our model, we construct a large-scale dataset comprising approximately 19K 2D full-body human images and their corresponding sketches in a hand-drawn style.
-            Experimental results demonstrate that our 360SketchHuman can transfer hand-drawn sketches into photo-realistic 360° full-body human images with precise sketch-human alignment. 
+            Experimental results demonstrate that our Sketch2Avatar can transfer hand-drawn sketches into photo-realistic 360° full-body human images with precise sketch-human alignment. 
             Ablation studies further validate the effectiveness of our design choices.
         </p>
 
@@ -121,9 +121,9 @@
         <div class="teaser-mid preview">
             <img style="width:100%;" src="./resources/images/pipeline.png" alt="Model overview figure" />
             <br>
-            <i>
-                Illustration of 3D full-body human generation from hand-drawn sketches. Our Sketch2Human3D supports transferring hand-drawn sketches into 3D humans which can be rendered into multi-view RGB images. For each hand-drawn sketch, we show three rendered images with different body orientations and its corresponding 3D shape.
-            </i>
+            <!-- <i>
+                The overall pipeline of our proposed Sketch2Avatar. Compared to other 3D sketch-based generation methods, our novelty is to guide the 3D representation generation and neural rendering process by utilizing the geometry information extracted from the sketch. In module 1: we propose sketch-guided 3D representation generation to create the tri-plane representation using spatial sketch guidance and latent modulation. Then, in module 2: we propose body-aware neural rendering to synthesis photo-realistic results with the 3D human body prior derived by the sketch.
+            </i> -->
         </div>
         
         <!-- <h1>Paper</h1>
